@@ -12,8 +12,8 @@
         <div>🦕</div>
         <h1>Jogo do Dino</h1>
         <button
+          id="btn-secreto"
           class="secret-btn"
-          onclick="showSecretModal()"
           title="Área restrita"
         >
           💰
@@ -55,13 +55,13 @@
           </div>
         </div>
         <div class="btn-row">
-          <button class="btn-secondary" onclick="escolherAleatorio()">
+          <button id="btn-secondary" class="btn-secondary">
             🎲 Escolha aleatória
           </button>
-          <button class="btn-primary" id="btn-apostar" onclick="apostar()">
+          <button id="aposta" class="btn-primary" id="btn-apostar">
             Apostar!
           </button>
-          <button class="btn-jackpot" onclick="tentarJackpot(this)">
+          <button id="jackpot" class="btn-jackpot" onclick="tentarJackpot(this)">
             ⚡ Chance única: 50x
           </button>
         </div>

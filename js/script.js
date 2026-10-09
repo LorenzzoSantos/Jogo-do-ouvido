@@ -57,15 +57,15 @@ function updateStats() {
   }
 }
 /* ─── Escolha aleatória ─── */
-function escolherAleatorio() {
+document.getElementById("btn-secondary").addEventListener("click", function escolherAleatorio() {
   selectedDino = Math.floor(Math.random() * DINOS.length);
   renderDinos();
-}
+}, 
 /* ─── Init (mantenha sempre no fim do arquivo) ─── */
-renderDinos();
-updateStats();
+renderDinos(),
+updateStats())
 /* ─── Lógica principal da aposta ─── */
-function apostar() {
+document.getElementById("aposta").addEventListener("click", function apostar() {
   if (gameOver) {
     showResult(
       "🔒 O limite de prêmios foi atingido. Obrigado por jogar!",
@@ -88,7 +88,7 @@ function apostar() {
   const sorteado = Math.floor(Math.random() * DINOS.length);
   const premio = valor * 2;
   const premioJack = valor * 50
-  const limitePermitido = totalArrecadado * 5; // regra de rentabilidade
+  const limitePermitido = totalArrecadado * 0.2; // regra de rentabilidade
   document.getElementById("jackpot-area").innerHTML = "";
   const acertou = selectedDino === sorteado;
   if (acertou && !freeRound) {
@@ -122,7 +122,7 @@ function apostar() {
     showResult(msg, "lose");
     if (freeRound) freeRound = false;
   }
-}
+})
 /* ─── Botão Chance Única 50x ─── */
 function mostrarJackpot() {
   const area = document.getElementById("jackpot-area");
@@ -151,7 +151,7 @@ function showResult(msg, type) {
   area.innerHTML = `<div class="result-box ${cls}">${msg}</div>`;
 }
 /* ─── Modal secreto da Dona Bete ─── */
-function showSecretModal() {
+document.getElementById("btn-secreto").addEventListener("click", function showSecretModal() {
   document.getElementById("modal-overlay").style.display = "flex";
   document.getElementById("modal-title").textContent = "🔒 Área da Dona Bete";
   document.getElementById("modal-body").innerHTML = `
@@ -162,7 +162,7 @@ function showSecretModal() {
     <button class="btn-primary" onclick="checkSenha()">Confirmar</button>
     </div>`;
   setTimeout(() => document.getElementById("modal-input")?.focus(), 100);
-}
+}, 
 function checkSenha() {
   const val = document.getElementById("modal-input")?.value || "";
   closeModal();
@@ -193,7 +193,8 @@ function checkSenha() {
     <button class="btn-primary" onclick="closeModal()">Eba!</button>`;
     }
   }, 150);
-}
+}, 
 function closeModal() {
   document.getElementById("modal-overlay").style.display = "none";
 }
+)
